@@ -27,21 +27,95 @@
 }
 
 .todo-content{
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 .todo-item{
     display: block;
     gap: 10px;
+    cursor: pointer;
 }
 
+
+.todo-text {
+    font-size: 16px;
+}
+
+.todo-timestamp {
+    font-size: 12px;
+    color: #666;
+}
 
 .delete-button{
     width: 100px;
     display: flex;
     justify-content: center;
-    text-align: center;
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #ff4444;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
+
+.delete-button:hover {
+    background-color: #cc0000;
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+}
+
+.modal-text {
+    font-size: 18px;
+    margin: 1rem 0;
+    word-wrap: break-word;
+}
+
+.modal-timestamp {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.modal-close {
+    padding: 8px 16px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.modal-close:hover {
+    background-color: #555;
+}
+
 .todo-entries {
     margin-top: 20px;
   }

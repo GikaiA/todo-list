@@ -5,6 +5,8 @@ import "./Home.css";
 function Home() {
   const [todos, setTodos] = useState([]);
   const [newTodo, setNewTodo] = useState("");
+  const [selectedTodo, setSelectedTodo] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     fetchTodos();
@@ -67,6 +69,16 @@ function Home() {
     return date.toLocaleString();
   };
 
+  const handleTodoClick = (todo) => {
+    setSelectedTodo(todo);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedTodo(null);
+  };
+
   return (
     <div className="home">
       <h1>Todo List</h1>
@@ -85,19 +97,36 @@ function Home() {
       <div className="todos-list">
         {todos.map((todo) => (
           <div key={todo.id} className="todo-item">
-            <div className="todo-content">
+            <div 
+              className="todo-content"
+              onClick={() => handleTodoClick(todo)}
+            >
               <span className="todo-text">{todo.text}</span>
               <span className="todo-timestamp">{formatDate(todo.created_at)}</span>
             </div>
             <button 
               className="delete-button"
-              onClick={() => handleDelete(todo.id)}
+              onClick={(e) => {
+                e.stopPropagation();
+                handleDelete(todo.id);
+              }}
             >
               Delete
             </button>
           </div>
         ))}
       </div>
+
+      {isModalOpen && selectedTodo && (
+        <div className="modal-overlay" onClick={closeModal}>
+          <div className="modal-content" onClick={e => e.stopPropagation()}>
+            <h2>Todo Details</h2>
+            <p className="modal-text">{selectedTodo.text}</p>
+            <p className="modal-timestamp">Created: {formatDate(selectedTodo.created_at)}</p>
+            <button className="modal-close" onClick={closeModal}>Close</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

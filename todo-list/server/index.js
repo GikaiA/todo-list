@@ -18,7 +18,8 @@ app.use(express.json());
 // Database setup
 const dbPromise = open({
   filename: join(__dirname, 'todos.db'),
-  driver: sqlite3.Database
+  driver: sqlite3.Database,
+  mode: sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE
 });
 
 // Initialize database
