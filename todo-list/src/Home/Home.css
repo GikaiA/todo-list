@@ -1,0 +1,26 @@
+.home{
+    display: block;
+}
+
+.todolist-section{
+    display: inline-block;
+    text-align: center;
+}
+
+.input-field{
+    display: block;
+    font-size: 18px;
+    border-radius: 6px;
+    border-color: transparent;
+    width: 800px;
+    margin-bottom: 10px;
+}
+
+.submit-button{
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.todo-entries {
+    margin-top: 20px;
+  }
