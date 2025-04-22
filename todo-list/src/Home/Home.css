@@ -26,6 +26,9 @@
     background-color: black;
 }
 
+.todo-content{
+    display: grid;
+}
 
 .todo-item{
     display: block;
@@ -37,6 +40,7 @@
     width: 100px;
     display: flex;
     justify-content: center;
+    text-align: center;
 }
 .todo-entries {
     margin-top: 20px;
