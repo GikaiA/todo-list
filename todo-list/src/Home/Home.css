@@ -1,10 +1,14 @@
 .home{
     display: block;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
 }
 
 .todolist-section{
     display: inline-block;
     text-align: center;
+    margin-bottom: 2rem;
 }
 
 .input-field{
@@ -19,8 +23,21 @@
 .submit-button{
     padding: 10px 15px;
     cursor: pointer;
+    background-color: black;
 }
 
+
+.todo-item{
+    display: block;
+    gap: 10px;
+}
+
+
+.delete-button{
+    width: 100px;
+    display: flex;
+    justify-content: center;
+}
 .todo-entries {
     margin-top: 20px;
   }
